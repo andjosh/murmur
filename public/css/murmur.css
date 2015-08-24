@@ -1,0 +1,14 @@
+body {
+    font-family: Baskerville, serif;
+    background: white;
+    color: black;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-style: italic;
+    font-weight: 500;
+    color: grey;
+}
+main {
+    max-width: 600px;
+    margin: 2em auto;
+}

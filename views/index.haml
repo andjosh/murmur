@@ -1,0 +1,16 @@
+%html
+  %head
+    %title Murmur
+    / By www.andjosh.com
+    %link{href: "/css/murmur.css", rel: "stylesheet"}
+ 
+  %body
+    %main
+      %h1 Murmur
+      %p.desc A choose-your-own-adventure game, over email.
+      %div.form-wrap
+        %form
+          %legend To play, enter your email address.
+          %input{type: "email", name: "email", placeholder: "fox@bant.com"}
+          %button{type: "submit"} Begin
+    %script{src: "/js/murmur.js"}
