@@ -8,6 +8,7 @@ gem "rack-cache"
 gem "postmark"
 gem "activerecord"
 gem "sinatra-activerecord"
+gem "postmark-mitt"
 
 group :development do
   gem 'sqlite3'

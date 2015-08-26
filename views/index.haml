@@ -9,7 +9,7 @@
       %h1 Murmur
       %p.desc A choose-your-own-adventure game, over email.
       %div.form-wrap
-        %form
+        %form{method: "POST", action: "/begin"}
           %legend To play, enter your email address.
           %input{type: "email", name: "email", placeholder: "fox@bant.com"}
           %button{type: "submit"} Begin
