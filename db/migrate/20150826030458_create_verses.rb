@@ -1,15 +1,14 @@
 class CreateVerses < ActiveRecord::Migration
     def self.up
         create_table :steps do |t|
-            t.belongs_to :parent
-            t.belongs_to :child
-            t.integer :choice
+            t.belongs_to        :parent,:null => false
+            t.belongs_to        :child, :null => false
+            t.integer           :choice,:null => false, :default => 1
         end
 
         create_table :verses do |t|
-            t.string :subject
-            t.text :body, :null => false
-            t.belongs_to :reader
+            t.string    :subject
+            t.text      :body, :null => false
             t.timestamps
         end
     end

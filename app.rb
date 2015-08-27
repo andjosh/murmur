@@ -5,6 +5,8 @@ require "postmark-mitt"
 require 'sinatra/activerecord'
 require './environments'
 require './models/reader'
+require './models/verse'
+require './models/step'
 
 set :haml, :format => :html5
  
@@ -31,4 +33,9 @@ post "/step" do
     else
         puts "No reader found for " + email.from_email
     end
+end
+
+get "/verse/:id" do
+    @verse = Verse.find(params['id'])
+    puts @verse
 end

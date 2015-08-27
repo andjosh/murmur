@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: readers
+#
+#  id         :integer          not null, primary key
+#  email      :string           not null
+#  status     :string           default("closed")
+#  choice     :integer          default(1)
+#  verse_id   :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class Reader < ActiveRecord::Base
     validates :email, presence: true, length: { minimum: 5 }
 
