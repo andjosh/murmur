@@ -17,9 +17,13 @@ class Reader < ActiveRecord::Base
     belongs_to :verse
 
     after_create :send_begin
-    after_save :send_verse
+    after_save :send_verse, if: :verse_changed?
 
     def update_verse(choice)
+        step = self.verse.steps.find_by_choice(choice)
+        if step
+            self.verse = step.child
+        end
         self.choice = choice.to_i
         self.save
     end

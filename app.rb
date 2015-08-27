@@ -36,6 +36,6 @@ post "/step" do
 end
 
 get "/verse/:id" do
-    @verse = Verse.find(params['id'])
-    puts @verse
+    @verse = Verse.includes(:children, :parent).find(params['id'])
+    @verse.to_json
 end
