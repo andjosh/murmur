@@ -18,4 +18,13 @@ class Verse < ActiveRecord::Base
     has_one :step_parent, class_name: "Step", foreign_key: "child_id"
     has_one :parent, through: :step_parent
 
+    def composed
+        text = self.body
+        text += "\n\n"
+        for c in self.children
+            text += c.step_parent.choice.to_s + ": " + c.subject + "\n"
+        end
+        text
+    end
+
 end
