@@ -23,6 +23,8 @@ class Reader < ActiveRecord::Base
         step = self.verse.steps.find_by_choice(choice)
         if step
             self.verse = step.child
+        else
+            self.verse = Verse.first
         end
         self.choice = choice.to_i
         self.save
