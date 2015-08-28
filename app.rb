@@ -18,7 +18,7 @@ post "/begin" do
     email = params['email']
     @reader = Reader.new(email: email)
     if @reader.save
-        haml :index
+        haml :begin
     else
         redirect "/?error=saving"
     end
