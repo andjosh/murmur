@@ -33,7 +33,7 @@ class Reader < ActiveRecord::Base
     def send_begin
         post_mark = Postmark::ApiClient.new(ENV['POSTMARK_API_KEY'])
         post_mark.deliver(
-            from:       'murmur@murmur.club',
+            from:       'murmurs@andjosh.com',
             to:         self.email,
             subject:    'It began with a murmur',
             text_body:  'And it begins, again, with a murmur....'
@@ -45,7 +45,7 @@ class Reader < ActiveRecord::Base
         composed = self.verse.composed
         subject = self.verse.subject + '...murmurs'
         post_mark.deliver(
-            from:       'murmur@murmur.club',
+            from:       'murmurs@andjosh.com',
             to:         self.email,
             subject:    subject,
             html_body:  composed,
