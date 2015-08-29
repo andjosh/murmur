@@ -2,6 +2,7 @@
   %head
     %title Murmurs
     / By www.andjosh.com
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1"}
     %link{href: "/css/murmur.css", rel: "stylesheet"}
  
   %body
@@ -13,4 +14,14 @@
           %legend To play, enter your email address.
           %input{type: "email", name: "email", placeholder: "fox@bant.com"}
           %button{type: "submit"} Begin
+      %div.about
+        %h3 Questions
+        %p Can I write a storyline?
+        %blockquote
+          Send your idea(s) to
+          %a{href: "mailto:murmurs@andjosh.com"} murmurs@andjosh.com
+          and we can begin.
+        %p How can I start over with my game?
+        %blockquote
+          Replying with "<code>0</code>" to any verse (email) will reset your game.
     %script{src: "/js/murmur.js"}
