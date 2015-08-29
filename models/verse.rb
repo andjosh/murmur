@@ -20,7 +20,7 @@ class Verse < ActiveRecord::Base
 
     def composed
         text = self.body
-        text += "\n\n"
+        text += "\n\n---\n\n"
         for c in self.children
             text += c.step_parent.choice.to_s + ": " + c.subject + "\n"
         end
