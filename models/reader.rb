@@ -39,8 +39,8 @@ class Reader < ActiveRecord::Base
             from:       'murmurs@andjosh.com',
             to:         self.email,
             subject:    subject,
-            html_body:  composed,
-            text_body:  composed
+            html_body:  composed_html,
+            text_body:  composed_text
         )
     end
 end

@@ -18,11 +18,19 @@ class Verse < ActiveRecord::Base
     has_one :step_parent, class_name: "Step", foreign_key: "child_id"
     has_one :parent, through: :step_parent
 
-    def composed
+    def composed_text
+        return composed("\n")
+    end
+
+    def composed_html
+        return composed("<br>")
+    end
+
+    def composed(br)
         text = self.body
-        text += "\r\r---\r\r"
+        text += br + br + "---" + br + br
         for c in self.children
-            text += c.step_parent.choice.to_s + ": " + c.subject + "\r"
+            text += c.step_parent.choice.to_s + ": " + c.subject + br
         end
         text
     end
