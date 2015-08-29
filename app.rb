@@ -28,8 +28,7 @@ post "/step" do
     email = Postmark::Mitt.new(body)
     reader = Reader.find_by_email(email.from_email)
     if reader
-        step = email.text_body.split("\n").first.to_i.abs
-        step = [step, 4].min
+        reader.choose_verse(email.text_body)
     else
         puts "No reader found for " + email.from_email
     end

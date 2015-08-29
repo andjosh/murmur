@@ -19,7 +19,9 @@ class Reader < ActiveRecord::Base
     after_create :send_verse
     after_save :send_verse, if: :verse_id_changed?
 
-    def update_verse(choice)
+    def choose_verse(response)
+        choice = response.split("\n").first.to_i.abs
+        choice = [choice, 4].min
         step = self.verse.steps.find_by_choice(choice)
         if step
             self.verse = step.child
