@@ -16,7 +16,7 @@ class Reader < ActiveRecord::Base
 
     belongs_to :verse
 
-    after_create :send_begin
+    after_create :send_verse
     after_save :send_verse, if: :verse_id_changed?
 
     def update_verse(choice)
@@ -28,16 +28,6 @@ class Reader < ActiveRecord::Base
         end
         self.choice = choice.to_i
         self.save
-    end
-
-    def send_begin
-        post_mark = Postmark::ApiClient.new(ENV['POSTMARK_API_KEY'])
-        post_mark.deliver(
-            from:       'murmurs@andjosh.com',
-            to:         self.email,
-            subject:    'It began with a murmur',
-            text_body:  'And it begins, again, with a murmur....'
-        )
     end
 
     def send_verse
