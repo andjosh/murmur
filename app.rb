@@ -16,7 +16,7 @@ end
 
 post "/begin" do
     email = params['email']
-    @reader = Reader.new(email: email)
+    @reader = Reader.new(email: email, verse_id: 1)
     if @reader.save
         haml :begin
     else
