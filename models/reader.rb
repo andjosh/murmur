@@ -16,7 +16,6 @@ class Reader < ActiveRecord::Base
 
     belongs_to :verse
 
-    after_create :send_verse
     after_save :send_verse, if: :verse_id_changed?
 
     def choose_verse(response)
