@@ -19,11 +19,11 @@ class Verse < ActiveRecord::Base
     has_one :parent, through: :step_parent
 
     def composed_text
-        return composed("\n")
+        return self.composed("\n")
     end
 
     def composed_html
-        return composed("<br>")
+        return self.composed("<br>")
     end
 
     def composed(br)
