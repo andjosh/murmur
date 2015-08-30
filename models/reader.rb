@@ -33,14 +33,13 @@ class Reader < ActiveRecord::Base
 
     def send_verse
         post_mark = Postmark::ApiClient.new(ENV['POSTMARK_API_KEY'])
-        composed = self.verse.composed
         subject = self.verse.subject + '...murmurs'
         post_mark.deliver(
             from:       'murmurs@andjosh.com',
             to:         self.email,
             subject:    subject,
-            html_body:  composed_html,
-            text_body:  composed_text
+            html_body:  self.verse.composed_html,
+            text_body:  self.verse.composed_text
         )
     end
 end
