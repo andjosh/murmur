@@ -33,10 +33,10 @@ GEM
     postmark-mitt (0.0.11)
       json_pure
       multi_json
-    rack (1.5.2)
+    rack (1.6.11)
     rack-cache (1.2)
       rack (>= 0.4)
-    rack-protection (1.5.1)
+    rack-protection (1.5.5)
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
